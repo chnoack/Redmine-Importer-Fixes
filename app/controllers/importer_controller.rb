@@ -23,6 +23,8 @@ class ImporterController < ApplicationController
     # save import file
     @original_filename = file.original_filename
     tmpfile = Tempfile.new("redmine_importer")
+    tmpfile.binmode
+    file.binmode
     if tmpfile
       tmpfile.write(file.read)
       tmpfile.close
