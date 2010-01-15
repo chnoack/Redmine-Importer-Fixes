@@ -1,0 +1,41 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'importer', :plugin => 'redmine_importer' %>
+<% end %>
+
+
+<h2><%= l(:label_match_columns) %></h2>
+
+	<fieldset class="box"><legend><%= l(:label_match_select) %></legend>
+	<% @headers.each do |column| %>
+		 <label class="tabular"><%= column %>:
+		 <%= select_tag "encoding", "<option>UTF8</option>" %></label>
+	<% end %>
+	</fieldset>
+	
+	<fieldset class="box"><legend><%= l(:label_update_rule) %></legend>
+		<label class="tabular"><%= check_box_tag "encoding", 1, false %> <%= l(:label_unique_field) %>:
+		</label>
+		
+		<label class="tabular"><%= l(:label_unique_field) %>:
+		<%= select_tag "encoding", "<option>UTF8</option>" %></label>
+	<% end %>
+	</fieldset>
+
+<%= l(:label_toplines, params[:file].original_filename) %>
+<table class="list">
+    <thead><tr>
+        <% @headers.each do |column| %>
+          <th><%= column %></th>
+        <% end %>
+	</tr></thead>
+	<tbody>
+	<% @samples.each do |issue| -%>
+	<tr class="<%= cycle("odd", "even") %>">
+	    <% issue.each do |column| %><%= content_tag 'td', column[1] %><% end %>
+	</tr>
+	<% end %>
+	<tr class="<%= cycle("odd", "even") %>">
+	    <% @headers.each do |column| %><td>...</td><% end %>
+	</tr>
+	</tbody>
+</table>

@@ -1,0 +1,28 @@
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'importer', :plugin => 'redmine_importer' %>
+<% end %>
+
+<h2><%= l(:label_import_result) %></h2>
+<p><%= l(:label_result_notice, 1005, 1000) %></p>
+<p><%= l(:label_result_projects) %><br/>
+<label class="tabular2">MTK12:</label><label class="tabular2"><%= l(:label_result_issues, 22) %></label><br/>
+<label class="tabular2">Stego:</label><label class="tabular2"><%= l(:label_result_issues, 1983) %></label><br/></p>
+<hr/>
+
+<%= l(:label_result_failed, 5) %>
+<table class="list">
+    <thead><tr>
+    	<th>#</th>
+        <% @headers.each do |column| %>
+          <th><%= column %></th>
+        <% end %>
+	</tr></thead>
+	<tbody>
+	<% @samples.each do |issue| -%>
+	<tr class="<%= cycle("odd", "even") %>">
+		<td>n</td>
+	    <% issue.each do |column| %><%= content_tag 'td', column[1] %><% end %>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
