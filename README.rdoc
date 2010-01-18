@@ -1,3 +1,5 @@
 = importer
 
-Patches for Redmine Importer Plugin. This work is based on http://www.martinliu.info/2009/04/redmine_importer-redmine-csv-import-plugin by Martini Liu. Be aware to have the gem fastercsv installed. My version makes it run unter Mac OS X Snow Leopard Server, Apache Phusion/Passenger, Redmine 0.8.7 stable with Ruby Enterprise Linux 1.8.7
+Patches for Redmine Importer Plugin. This work is based on http://www.martinliu.info/2009/04/redmine_importer-redmine-csv-import-plugin by Martini Liu. Be aware to have the gem fastercsv installed. My version makes it run unter Mac OS X Snow Leopard Server, Apache Phusion/Passenger, Redmine 0.8.7 stable with Ruby Enterprise Linux 1.8.7.
+
+Be aware that you have to rename the Folder Redmine-Impoter-Fixis to remine_importer when intalling it in the servers's vendor/plugin folder.
