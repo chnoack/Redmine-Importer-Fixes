@@ -64,7 +64,7 @@ class ImporterController < ApplicationController
     # fields
     @attrs = Array.new
     ISSUE_ATTRS.each do |attr|
-      @attrs.push([l_has_string?("field_#{attr}".to_sym) ? l("field_#{attr}".to_sym) : attr.to_s.humanize, attr])
+      @attrs.push([l("field_#{attr}".to_sym), attr])
     end
     @project.all_issue_custom_fields.each do |cfield|
       @attrs.push([cfield.name, cfield.name])
